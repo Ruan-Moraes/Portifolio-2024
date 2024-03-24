@@ -1,0 +1,235 @@
+@use '../1-base/variables';
+
+// * Text Colors
+
+.quaternary__color {
+  color: variables.$quaternary-color !important;
+
+  &--hover {
+    &:hover {
+      color: variables.$quaternary-color !important;
+    }
+  }
+}
+
+.quinary__color {
+  color: variables.$quinary-color !important;
+
+  &--hover {
+    &:hover {
+      color: variables.$quinary-color !important;
+    }
+  }
+}
+
+.senary__color {
+  color: variables.$senary-color !important;
+
+  &--hover {
+    &:hover {
+      color: variables.$senary-color !important;
+    }
+  }
+}
+
+.septenary__color {
+  color: variables.$septenary-color !important;
+
+  &--hover {
+    &:hover {
+      color: variables.$septenary-color !important;
+    }
+  }
+}
+
+.octonary__color {
+  color: variables.$octonary-color !important;
+
+  &--hover {
+    &:hover {
+      color: variables.$octonary-color !important;
+    }
+  }
+}
+
+// * Background Colors
+
+.quaternary__backgroundColor {
+  background-color: variables.$quaternary-color !important;
+
+  &--hover {
+    &:hover {
+      background-color: variables.$quaternary-color !important;
+    }
+  }
+
+  &--selected {
+    background-color: variables.$quaternary-color !important;
+  }
+
+  &--lessLightHover {
+    &:hover {
+      background-color: variables.$quaternary-color-less-light !important;
+    }
+  }
+
+  &--menuHover {
+    &:hover {
+      div {
+        background-color: variables.$quaternary-color !important;
+      }
+    }
+  }
+
+  &--menuActive {
+    &:active {
+      div {
+        background-color: variables.$quaternary-color !important;
+      }
+    }
+  }
+}
+
+.quinary__backgroundColor {
+  background-color: variables.$quinary-color !important;
+
+  &--hover {
+    &:hover {
+      background-color: variables.$quinary-color !important;
+    }
+  }
+
+  &--selected {
+    background-color: variables.$quinary-color !important;
+  }
+
+  &--lessLightHover {
+    &:hover {
+      background-color: variables.$quinary-color-less-light !important;
+    }
+  }
+
+  &--menuHover {
+    &:hover {
+      div {
+        background-color: variables.$quinary-color !important;
+      }
+    }
+  }
+
+  &--menuActive {
+    &:active {
+      div {
+        background-color: variables.$quinary-color !important;
+      }
+    }
+  }
+}
+
+.senary__backgroundColor {
+  background-color: variables.$senary-color !important;
+
+  &--hover {
+    &:hover {
+      background-color: variables.$senary-color !important;
+    }
+  }
+
+  &--lessLightHover {
+    &:hover {
+      background-color: variables.$senary-color-less-light !important;
+    }
+  }
+
+  &--selected {
+    background-color: variables.$senary-color !important;
+  }
+
+  &--menuHover {
+    &:hover {
+      div {
+        background-color: variables.$senary-color !important;
+      }
+    }
+  }
+
+  &--menuActive {
+    &:active {
+      div {
+        background-color: variables.$senary-color !important;
+      }
+    }
+  }
+}
+
+.septenary__backgroundColor {
+  background-color: variables.$septenary-color !important;
+
+  &--hover {
+    &:hover {
+      background-color: variables.$septenary-color !important;
+    }
+  }
+
+  &--selected {
+    background-color: variables.$septenary-color !important;
+  }
+
+  &--lessLightHover {
+    &:hover {
+      background-color: variables.$septenary-color-less-light !important;
+    }
+  }
+
+  &--menuHover {
+    &:hover {
+      div {
+        background-color: variables.$septenary-color !important;
+      }
+    }
+  }
+
+  &--menuActive {
+    &:active {
+      div {
+        background-color: variables.$septenary-color !important;
+      }
+    }
+  }
+}
+
+.octonary__backgroundColor {
+  background-color: variables.$octonary-color !important;
+
+  &--hover {
+    &:hover {
+      background-color: variables.$octonary-color !important;
+    }
+  }
+
+  &--selected {
+    background-color: variables.$octonary-color !important;
+  }
+
+  &--lessLightHover {
+    &:hover {
+      background-color: variables.$octonary-color-less-light !important;
+    }
+  }
+
+  &--menuHover {
+    &:hover {
+      div {
+        background-color: variables.$octonary-color !important;
+      }
+    }
+  }
+
+  &--menuActive {
+    &:active {
+      div {
+        background-color: variables.$octonary-color !important;
+      }
+    }
+  }
+}

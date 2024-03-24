@@ -1,0 +1,9 @@
+@use '../1-base/variables';
+
+.separator {
+  height: 100%;
+  width: 0.125rem;
+  display: block;
+  border-radius: 1rem;
+  background-color: variables.$tertiary-color;
+}

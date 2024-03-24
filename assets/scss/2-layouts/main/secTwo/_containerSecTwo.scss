@@ -3,15 +3,23 @@
 
 .main__projects {
   width: 100%;
-  margin-top: 6rem;
+  position: relative;
   padding: 2rem 0;
   background-color: variables.$tertiary-color;
 
   .container {
+    @extend %container;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 2rem;
-    @extend %container;
   }
+}
+
+#myProjects {
+  position: absolute;
+  top: -10rem;
+  left: 50%;
+  transform: translateX(-50%);
 }

@@ -1,0 +1,112 @@
+@use '../../1-base/variables';
+
+.header__links {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1001;
+  margin-top: 3.85rem;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  background-color: variables.$secondary-color;
+  transform: translateX(100%);
+  transition: transform variables.$transition-medium;
+  &.menuIsActivated {
+    transform: translateX(0);
+  }
+
+  .header__navigation {
+    .header__navigationLinks {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+
+      a {
+        font-size: 1.25rem;
+        transition: color variables.$transition-medium;
+      }
+    }
+  }
+
+  .header__contacts {
+    .header__contactsTitle {
+      display: block;
+    }
+
+    .header__contactsIcons {
+      display: flex;
+      gap: 1.25rem;
+
+      @keyframes expand {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.15);
+        }
+      }
+      @keyframes noExpand {
+        0% {
+          transform: scale(1.15);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .fa-linkedin,
+      .fa-envelope,
+      .fa-whatsapp,
+      .fa-github {
+        font-size: 2rem;
+        transition: color variables.$transition-medium;
+        &:hover {
+          animation: expand variables.$transition-medium linear infinite
+            alternate;
+        }
+      }
+
+      .fa-linkedin:hover {
+        color: #0e76a8;
+      }
+
+      .fa-envelope:hover {
+        color: #ee3c36;
+      }
+
+      .fa-whatsapp:hover {
+        color: #25d366;
+      }
+
+      .fa-github:hover {
+        color: #101010;
+      }
+    }
+  }
+
+  .header__navigation,
+  .header__contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+
+    .header__navigationTitle,
+    .header__contactsTitle {
+      h2 {
+        font-size: 2rem;
+        text-shadow: variables.$shadow-text;
+      }
+    }
+  }
+}

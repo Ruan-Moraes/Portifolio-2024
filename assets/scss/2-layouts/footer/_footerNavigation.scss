@@ -1,0 +1,31 @@
+@use '../../1-base/variables';
+
+.footer__navigationLinks {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+
+  .footer__title {
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-shadow: variables.$shadow-text;
+    }
+  }
+
+  .footer__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    a {
+      transition: color variables.$transition-fast;
+    }
+  }
+}

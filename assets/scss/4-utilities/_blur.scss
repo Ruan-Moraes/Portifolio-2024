@@ -1,0 +1,38 @@
+@use '../1-base/variables';
+
+.blurOnBody,
+.blurOnMain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  background: variables.$black-opacity-06;
+  backdrop-filter: variables.$blur;
+}
+
+.blurOnBody {
+  height: 100vh;
+  width: 100vw;
+  z-index: 1002;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity variables.$transition-fast;
+  &.blurOnBodyIsActivated {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.blurOnMain {
+  height: 100vh;
+  width: 50%;
+  z-index: 1000;
+  margin-top: 4.05rem;
+  border-right: 0.0625rem solid variables.$gray;
+  transform: translateX(-100%);
+  transition: transform variables.$transition-medium;
+  &.blurOnMainIsActivated {
+    transform: translateX(0);
+  }
+}

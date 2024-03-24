@@ -1,0 +1,70 @@
+@use '../../1-base/variables';
+@use '../../3-modules/mixins';
+
+.footer {
+  .container {
+    @include mixins.md {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, auto);
+      grid-template-areas:
+        'navigation contacts'
+        'copy copy';
+    }
+    @include mixins.xl {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(1, 1fr);
+      grid-template-areas: 'navigation copy contacts';
+    }
+  }
+}
+
+// --------------------------------------------------------------------------- //
+
+.footer__navigationLinks,
+.footer__contacts {
+  @include mixins.md {
+    height: 100%;
+    justify-content: start;
+    border-radius: 1rem;
+    border: none;
+    background-color: variables.$secondary-color;
+  }
+  @include mixins.xl {
+    justify-content: center;
+    border-radius: 0;
+    background-color: transparent;
+  }
+}
+
+// --------------------------------------------------------------------------- //
+
+.footer__navigationLinks {
+  @include mixins.md {
+    padding: 1rem 0;
+    grid-area: navigation;
+  }
+}
+
+// --------------------------------------------------------------------------- //
+
+.footer__contacts {
+  @include mixins.md {
+    grid-area: contacts;
+  }
+}
+
+// --------------------------------------------------------------------------- //
+
+.footer__copy {
+  @include mixins.md {
+    grid-area: copy;
+  }
+  @include mixins.xl {
+    height: 100%;
+    padding: 0 1rem;
+    gap: 0.5rem;
+    border-right: 0.125rem solid variables.$primary-color;
+    border-left: 0.125rem solid variables.$primary-color;
+  }
+}

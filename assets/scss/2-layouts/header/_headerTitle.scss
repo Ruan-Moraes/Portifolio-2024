@@ -1,0 +1,9 @@
+@use '../../1-base/variables';
+
+.header__title {
+  a {
+    font-size: 1.5rem;
+    transition: color variables.$transition-medium;
+    text-shadow: variables.$shadow-text;
+  }
+}

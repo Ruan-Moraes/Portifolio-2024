@@ -1,0 +1,85 @@
+@use '../../../1-base/variables';
+@use '../../../3-modules/mixins';
+
+.projects {
+  .error {
+    h3 {
+      @include mixins.min-desktop {
+        width: 75%;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .projects__pagesContainer {
+    .projects__projectsItems {
+      .projects__page {
+        &.projects__pageIsDisplayed {
+          @include mixins.sm {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+          }
+          @include mixins.lg {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+          }
+
+          .projects__card {
+            @include mixins.mbs {
+              padding: 1rem;
+            }
+            @include mixins.sm {
+              min-height: 0;
+              min-width: 0;
+            }
+
+            .projects__cardHeader {
+              h3 {
+                @include mixins.md {
+                  overflow: hidden;
+                  text-align: left;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                }
+              }
+            }
+
+            .projects__cardBody {
+              .projects__cardDescription {
+                p {
+                  @include mixins.md {
+                    text-align: left;
+                  }
+                }
+              }
+            }
+
+            .projects__cardFooter {
+              a {
+                @include mixins.mbs {
+                  padding: 0.75rem 1.25rem;
+                }
+                @include mixins.sm {
+                  padding: 0.5rem 1rem;
+                  font-size: 0.85rem;
+                }
+              }
+
+              &.noDeployed {
+                a {
+                  @include mixins.mbs {
+                    padding: 0.75rem 1.25rem;
+                  }
+                  @include mixins.sm {
+                    padding: 0.5rem 1rem;
+                    font-size: 0.85rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

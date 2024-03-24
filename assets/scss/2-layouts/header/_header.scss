@@ -1,0 +1,20 @@
+@use '../../1-base/variables';
+@use '../../3-modules/plugins';
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  border-bottom: 0.0625rem solid variables.$gray;
+  background-color: variables.$secondary-color;
+
+  .container {
+    @extend %container;
+    padding: 1rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

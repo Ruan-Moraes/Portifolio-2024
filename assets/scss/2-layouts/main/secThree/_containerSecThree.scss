@@ -1,0 +1,23 @@
+@use '../../../3-modules/plugins';
+
+.main__services {
+  width: 100%;
+  position: relative;
+  padding: 2rem 0;
+
+  .container {
+    @extend %container;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+#myServices {
+  position: absolute;
+  top: -10rem;
+  left: 50%;
+  transform: translateX(-50%);
+}

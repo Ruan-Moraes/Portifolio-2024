@@ -1,10 +1,11 @@
 @use 'variables';
-@use '../3-modules/mixins';
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
+
+$scrollbar-color: #3c3c3c;
 
 html,
 body,
@@ -89,10 +90,8 @@ audio,
 video {
   margin: 0;
   padding: 0;
-  font: inherit;
   font-size: 100%;
   font-family: 'Roboto', sans-serif;
-  text-decoration: none;
   letter-spacing: 0.0625rem;
   color: variables.$white;
   border: 0;
@@ -100,14 +99,13 @@ video {
   vertical-align: baseline;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  @include mixins.sm {
-    letter-spacing: 0.125rem;
-  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  overflow-x: hidden;
-  padding: 0 0 200rem 0;
   line-height: 1.2;
   background-color: variables.$primary-color;
 }
@@ -117,11 +115,15 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background-color: gray;
+  background-color: variables.$gray;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: rgb(60, 60, 60);
+  background-color: $scrollbar-color;
+}
+
+a {
+  text-decoration: none;
 }
 
 ol,

@@ -1,0 +1,7 @@
+@use '../1-base/variables';
+
+.sectionTitle {
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: variables.$shadow-text;
+}

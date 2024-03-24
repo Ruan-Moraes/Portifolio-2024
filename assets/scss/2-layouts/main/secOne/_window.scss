@@ -1,0 +1,134 @@
+@use '../../../1-base/variables';
+
+
+
+.aboutMe,
+.myHistory {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  border: 0.125rem solid variables.$black;
+  background-color: variables.$window-backgroundColor;
+  box-shadow: variables.$shadow-medium;
+
+  .aboutMe__header,
+  .myHistory__header {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 0.0625rem solid variables.$black;
+  }
+
+  .aboutMe__body,
+  .myHistory__body {
+    padding: 1rem;
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .myHistory__body {
+    flex-direction: column;
+  }
+}
+
+.aboutMe {
+  .aboutMe__lines {
+    display: none;
+  }
+
+  .aboutMe__body {
+    .aboutMe__content {
+      .aboutMe__declaration {
+        color: variables.$another-quinary-color;
+      }
+
+      .aboutMe__title {
+        display: inline;
+        color: variables.$another-senary-color;
+      }
+
+      .aboutMe__assignment {
+        color: variables.$another-septenary-color;
+      }
+
+      .aboutMe__keys {
+        color: variables.$another-octonary-color;
+      }
+
+      .aboutMe__properties {
+        margin-left: 1.5rem;
+        color: variables.$another-nonary-color;
+      }
+
+      .aboutMe__values {
+        color: variables.$another-denary-color;
+
+        &--noString {
+          color: variables.$another-elevenary-color;
+        }
+        &--block {
+          margin-left: 3rem;
+          display: block;
+          color: variables.$another-denary-color;
+
+          del {
+            color: variables.$another-octonary-color;
+          }
+        }
+      }
+
+      .aboutMe__commas {
+        color: variables.$another-octonary-color;
+      }
+
+      .aboutMe__brackets {
+        color: variables.$another-octonary-color;
+        &:last-child {
+          margin-left: 1.5rem;
+        }
+      }
+
+      .aboutMe__valueArray {
+        margin-left: 3rem;
+        display: block;
+      }
+    }
+  }
+}
+
+.myHistory {
+  .myHistory__title {
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-shadow: variables.$shadow-text;
+    }
+  }
+
+  .myHistory__section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    .myHistory__subTitle {
+      h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: variables.$another-senary-color;
+      }
+    }
+
+    .myHistory__text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      text-align: justify;
+      color: variables.$another-octonary-color;
+      text-indent: 2rem;
+    }
+  }
+}

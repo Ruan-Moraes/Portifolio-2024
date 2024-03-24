@@ -1,0 +1,44 @@
+@use '../3-modules/mixins';
+
+.blurOnMain {
+  @include mixins.lg {
+    display: block;
+  }
+  @include mixins.xxl {
+    display: none;
+  }
+}
+
+// --------------------------------------------------------------------------- //
+
+.hamburgerButton {
+  &#menuButton {
+    @include mixins.xxl {
+      display: none;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------- //
+
+.settings__balls {
+  .fa-xmark,
+  .fa-up-right-from-square {
+    @include mixins.min-desktop {
+      margin-bottom: 0.125rem;
+      margin-left: 0.125rem;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------- //
+
+.settings {
+  .settings__header {
+    h2 {
+      @include mixins.sm {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
