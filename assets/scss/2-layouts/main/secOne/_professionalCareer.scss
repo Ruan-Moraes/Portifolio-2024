@@ -17,21 +17,20 @@
     }
 
     h2 {
-      margin: 0 1.75rem;
-      font-size: 1.75rem;
+      margin: 0 0.75rem;
+      font-size: 1.25rem;
     }
   }
 
   .professionalCareer__apresentation {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
 
     .professionalCareer__myPhoto {
-      max-height: 20rem;
-      max-width: 20rem;
-      width: 35%;
+      width: 75%;
 
       img {
         height: 100%;
@@ -40,19 +39,21 @@
         border: 0.125rem solid variables.$black;
         box-shadow: variables.$shadow-medium;
         object-fit: cover;
+        margin: 0 auto;
       }
     }
 
     .professionalCareer__aboutMe {
-      width: 50%;
-      font-size: calc(1rem + 0.125vw);
-
       .professionalCareer__title {
         display: flex;
-        gap: 0.75rem;
+        flex-wrap: wrap;
+        align-items: center;
+        row-gap: 0.25rem;
+        column-gap: 0.5rem;
 
         span:nth-child(6) {
           color: variables.$another-quaternary-color;
+          width: 100%;
         }
 
         span:nth-child(5) {
@@ -92,7 +93,7 @@
 
         div:nth-child(1) {
           p {
-            margin-left: 3rem;
+            margin-left: 0.75rem;
             text-align: justify;
 
             span:nth-child(1) {
@@ -227,6 +228,5 @@
   }
 
   .professionalCareer__education {
-    
   }
 }

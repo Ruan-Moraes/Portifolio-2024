@@ -43,6 +43,8 @@ module.exports = {
       'justify-content',
       'align-items',
       'gap',
+      'column-gap',
+      'row-gap',
       'opacity',
       'appearance',
       'overflow',
