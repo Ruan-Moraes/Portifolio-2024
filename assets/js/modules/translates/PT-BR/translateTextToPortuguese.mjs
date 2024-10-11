@@ -212,7 +212,7 @@ export default async function translateTextToPortuguese() {
         });
       document.querySelector(
         '.aboutMe__content > div:nth-child(1) > h2'
-      ).textContent = 'minhaPessoa';
+      ).textContent = 'perfilProfissional';
       document.querySelector(
         '.aboutMe__content > p:nth-child(2) > span:nth-child(1)'
       ).textContent = 'nome:';

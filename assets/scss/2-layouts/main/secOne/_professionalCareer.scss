@@ -35,11 +35,11 @@
       img {
         height: 100%;
         width: 100%;
+        margin: 0 auto;
         border-radius: 1rem;
         border: 0.125rem solid variables.$black;
         box-shadow: variables.$shadow-medium;
         object-fit: cover;
-        margin: 0 auto;
       }
     }
 
@@ -48,12 +48,12 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        row-gap: 0.25rem;
         column-gap: 0.5rem;
+        row-gap: 0.25rem;
 
         span:nth-child(6) {
-          color: variables.$another-quaternary-color;
           width: 100%;
+          color: variables.$another-quaternary-color;
         }
 
         span:nth-child(5) {
@@ -121,8 +121,8 @@
       // TODO: Mexer quando o número de itens for maior que 1.
 
       .professionalCareer__item {
-        max-width: 50%;
-        padding: 1rem;
+        width: 100%;
+        padding: 0.5rem;
         display: flex;
         flex-direction: column;
         gap: 1rem;
@@ -132,29 +132,43 @@
 
         .professionalCareer__header {
           display: flex;
-          justify-content: space-between;
-          align-items: center;
-          border-bottom: 0.125rem solid variables.$black;
+          flex-direction: column;
 
           .professionalCareer__date {
-            height: max-content;
-            width: 50%;
-            padding: 1rem;
+            width: max-content;
+            padding: 0.5rem;
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
             gap: 0.5rem;
-            border-radius: 0.25rem 0.25rem 0 0;
+
+            text-align: center;
+            border-radius: 0 0 0.25rem 0.25rem;
             border: 0.125rem solid variables.$black;
-            border-bottom: none;
+            border-top: none;
+
+            p {
+              display: flex;
+              align-items: center;
+              gap: 0.25rem;
+              font-size: 0.75rem;
+
+              i {
+                font-size: 1rem;
+              }
+            }
           }
 
           .professionalCareer__company {
+            padding-bottom: 0.5rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 0.5rem;
             text-align: center;
+            border-bottom: 0.125rem solid variables.$black;
             flex: 1 0 0;
 
             div:nth-child(2) {
@@ -227,6 +241,6 @@
     }
   }
 
-  .professionalCareer__education {
-  }
+  // .professionalCareer__education {
+  // }
 }
