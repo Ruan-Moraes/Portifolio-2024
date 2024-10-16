@@ -47,4 +47,6 @@ window.addEventListener('DOMContentLoaded', () => {
   // * Lógica para resgatar as qualificações do banco de dados
 
   fetchQualificationsAPI();
+
+  // * Lógica para o carrossel de certificados e certificações
 });

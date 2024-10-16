@@ -23,14 +23,33 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link
+      rel="stylesheet"
+      href="../node_modules/@splidejs/splide/dist/css/splide.min.css"
+    />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+    <script
+      src="../node_modules/@splidejs/splide/dist/js/splide.min.js"
+      defer
+    ></script>
     <script
       type="module"
       src="../assets/js/professionalCareer.mjs"
       defer
     ></script>
     <title>Ruan Moraes | Certificações e Certificados</title>
+
+    <!-- Splide -->
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        new Splide('.splide', {
+          type: 'fade',
+          rewind: true,
+        }).mount();
+      });
+    </script>
   </head>
   <body>
     <div class="blurOnBody"></div>
@@ -261,7 +280,36 @@
                 <h2>Formação Profissional</h2>
                 <hr />
               </div>
-              <div></div>
+              <div class="professionalCareer__qualifications">
+                <div class="splide">
+                  <h3 id="carousel-heading">Certificados</h3>
+                  <div class="splide__track">
+                    <ul class="splide__list">
+                      <li class="splide__slide">Slide 01</li>
+                      <li class="splide__slide">Slide 02</li>
+                      <li class="splide__slide">Slide 03</li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- <div class="splide">
+                  <h3 id="carousel-heading">Certificados</h3>
+                  <div class="splide__track">
+                    <ul class="splide__list">
+                      <li class="splide__slide">Slide 01</li>
+                      <li class="splide__slide">Slide 02</li>
+                      <li class="splide__slide">Slide 03</li>
+                    </ul>
+                  </div>
+                </div> -->
+                <div class="faculdade">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Recusandae, veniam! Molestias maxime iure dignissimos magnam
+                    sint ipsum officiis cumque unde tempore eius, dolores quia
+                    voluptas temporibus soluta reprehenderit accusamus at.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

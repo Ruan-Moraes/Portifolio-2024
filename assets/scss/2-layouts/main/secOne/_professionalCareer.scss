@@ -241,6 +241,51 @@
     }
   }
 
-  // .professionalCareer__education {
-  // }
+  .professionalCareer__formation {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .professionalCareer__qualifications {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+
+      .splide {
+        flex: 1 1 0;
+        height: 32rem;
+        border: 0.125rem solid variables.$black;
+        border-radius: 0.25rem;
+        box-shadow: variables.$shadow-medium;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h3 {
+          font-size: 1.25rem;
+          border-bottom: 0.125rem solid variables.$black;
+          width: 100%;
+          text-align: center;
+          padding: 1rem;
+          background-color: variables.$secondary-color;
+        }
+
+        .splide__track {
+          height: 100%;
+          width: 100%;
+
+          li {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
 }

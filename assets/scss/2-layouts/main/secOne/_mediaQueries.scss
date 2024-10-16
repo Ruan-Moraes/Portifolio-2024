@@ -119,6 +119,8 @@
     }
 
     .professionalCareer__title {
+      gap: 1.5rem;
+
       h2 {
         @include mixins.mbm {
           font-size: 1.5rem;
@@ -213,10 +215,14 @@
               border-radius: 0.25rem 0.25rem 0 0;
               border: 0.125rem solid variables.$black;
               border-bottom: none;
+
+              p {
+                gap: 0.5rem;
+              }
             }
             @include mixins.lg {
               p {
-                gap: 0.5rem;
+                font-size: 1rem;
 
                 i {
                   font-size: 1.25rem;
@@ -225,7 +231,11 @@
             }
             @include mixins.xl {
               p {
-                font-size: 1rem;
+                gap: 0.75rem;
+
+                i {
+                  font-size: 1.5rem;
+                }
               }
             }
           }

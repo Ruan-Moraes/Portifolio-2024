@@ -16,5 +16,10 @@
     "stylelint-config-recommended-scss": "^14.0.0",
     "stylelint-order": "^6.0.4",
     "stylelint-scss": "^6.3.0"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "install": "^0.13.0",
+    "npm": "^10.9.0"
   }
 }

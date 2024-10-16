@@ -195,7 +195,7 @@ function insertProjects(projectsGroups, currentColor) {
           <div class="projects__cardDescription">
             <p data-translate>${project.description}</p>
           </div>
-        </div> 
+        </div>
         <div class="projects__cardFooter">
           <a href="${project.html_url}" target="_blank" rel="noopener noreferrer" class="${currentColor}__backgroundColor--hover">
             <i class="fab fa-github"></i>
@@ -217,7 +217,7 @@ function insertProjects(projectsGroups, currentColor) {
           <div class="projects__cardDescription">
             <p data-translate>${project.description}</p>
           </div>
-        </div> 
+        </div>
         <div class="projects__cardFooter noDeployed">
           <a href="${project.html_url}" target="_blank" rel="noopener noreferrer" class="${currentColor}__backgroundColor--hover">
             <i class="fab fa-github"></i>
