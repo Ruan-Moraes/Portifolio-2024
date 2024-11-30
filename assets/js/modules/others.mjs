@@ -43,9 +43,9 @@ export function getDynamicElementsDOM(selector, multiple = false) {
 }
 
 export async function changeSettingsTextsDOM(language) {
-  if (getValuesLocalStorage('firstTimeTranslating')) {
-    return;
-  }
+  // if (getValuesLocalStorage('firstTimeTranslating')) {
+  //   return;
+  // }
 
   const selectedOptionsDOM = await getDynamicElementsDOM('.selectedItem', true);
 

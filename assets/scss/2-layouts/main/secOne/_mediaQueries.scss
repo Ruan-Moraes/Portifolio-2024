@@ -114,190 +114,211 @@
 
 .main__professionalCareer {
   .container {
-    @include mixins.sm {
-      flex-direction: row;
-    }
-
-    .professionalCareer__title {
-      gap: 1.5rem;
-
-      h2 {
-        @include mixins.mbm {
-          font-size: 1.5rem;
-        }
-      }
-    }
-
-    .professionalCareer__apresentation {
-      @include mixins.md {
-        flex-direction: row;
+    .professionalCareer {
+      @include mixins.sm {
+        gap: 2rem;
       }
 
-      .professionalCareer__myPhoto {
-        @include mixins.min-desktop {
-          max-height: 22.015625rem;
-          max-width: 22.015625rem;
-        }
-        @include mixins.md {
-          width: 35%;
-        }
-      }
-
-      .professionalCareer__aboutMe {
+      .professionalCareer__title {
         @include mixins.sm {
-          width: 75%;
-        }
-        @include mixins.md {
-          width: 65%;
-        }
-        @include mixins.lg {
-          width: 50%;
+          gap: 1.5rem;
         }
 
-        .professionalCareer__title {
+        h2 {
           @include mixins.mbm {
-            column-gap: 0.75rem;
-          }
-
-          span:nth-child(6) {
-            @include mixins.mbm {
-              width: auto;
-            }
-          }
-        }
-
-        .professionalCareer__content {
-          div:nth-child(1) {
-            p {
-              @include mixins.mbm {
-                margin-left: 1.5rem;
-              }
-            }
+            font-size: 1.5rem;
           }
         }
       }
-    }
-  }
 
-  .professionalCareer__trajectory {
-    .professionalCareer__items {
-      // TODO: Mexer quando o número de itens for maior que 1.
-
-      .professionalCareer__item {
-        @include mixins.min-desktop {
-          padding: 1rem;
-        }
+      .professionalCareer__apresentation {
         @include mixins.md {
-          max-width: 50%;
+          flex-direction: row;
         }
 
-        .professionalCareer__header {
+        .professionalCareer__myPhoto {
+          @include mixins.min-desktop {
+            max-height: 22.015625rem;
+            max-width: 22.015625rem;
+          }
           @include mixins.md {
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-            border-bottom: 0.125rem solid variables.$black;
+            width: 35%;
+          }
+        }
+
+        .professionalCareer__aboutMe {
+          @include mixins.sm {
+            width: 75%;
+          }
+          @include mixins.md {
+            width: 65%;
           }
           @include mixins.lg {
-            flex-direction: row;
-            align-items: stretch;
+            width: 50%;
           }
 
-          .professionalCareer__date {
-            @include mixins.mbs {
-              padding: 0.75rem;
+          .professionalCareer__title {
+            @include mixins.mbm {
+              column-gap: 0.75rem;
             }
-            @include mixins.min-desktop {
-              padding: 1rem;
-            }
-            @include mixins.md {
-              width: max-content;
-              border-radius: 0.25rem 0.25rem 0 0;
-              border: 0.125rem solid variables.$black;
-              border-bottom: none;
 
-              p {
-                gap: 0.5rem;
-              }
-            }
-            @include mixins.lg {
-              p {
-                font-size: 1rem;
-
-                i {
-                  font-size: 1.25rem;
-                }
-              }
-            }
-            @include mixins.xl {
-              p {
-                gap: 0.75rem;
-
-                i {
-                  font-size: 1.5rem;
-                }
+            span:nth-child(6) {
+              @include mixins.mbm {
+                width: auto;
               }
             }
           }
 
-          .professionalCareer__company {
-            @include mixins.min-desktop {
-              padding-bottom: 1rem;
-            }
-            @include mixins.md {
-              padding-bottom: 0;
-              border-bottom: none;
-            }
-            @include mixins.lg {
-              padding: 1rem 00;
-            }
-            @include mixins.xl {
-              padding: 0;
+          .professionalCareer__content {
+            div:nth-child(1) {
+              p {
+                @include mixins.mbm {
+                  margin-left: 1.5rem;
+                }
+              }
             }
           }
         }
+      }
+    }
 
-        .professionalCareer__body {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
+    .professionalCareer__trajectory {
+      @include mixins.sm {
+        gap: 2rem;
+      }
 
-          .professionalCareer__activities,
-          .professionalCareer__tecnologies {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+      .professionalCareer__items {
+        // TODO: Mexer quando o número de itens for maior que 1.
 
-            h4 {
-              display: flex;
+        .professionalCareer__item {
+          @include mixins.min-desktop {
+            padding: 1rem;
+          }
+          @include mixins.md {
+            max-width: 50%;
+          }
+
+          .professionalCareer__header {
+            @include mixins.md {
+              justify-content: space-between;
               align-items: center;
-              gap: 0.5rem;
-              font-size: 1rem;
+              gap: 1rem;
+              border-bottom: 0.125rem solid variables.$black;
+            }
+            @include mixins.lg {
+              flex-direction: row;
+              align-items: stretch;
             }
 
-            ul {
-              display: flex;
-              flex-wrap: wrap;
-              gap: 0.5rem;
-
-              li {
-                padding: 0.25rem 0.5rem;
-                font-size: 0.75rem;
-                font-weight: 700;
-                color: variables.$another-quaternary-color;
-                border-radius: 0.25rem;
+            .professionalCareer__date {
+              @include mixins.mbs {
+                padding: 0.75rem;
+              }
+              @include mixins.min-desktop {
+                padding: 1rem;
+              }
+              @include mixins.md {
+                width: max-content;
+                border-radius: 0.25rem 0.25rem 0 0;
                 border: 0.125rem solid variables.$black;
+                border-bottom: none;
+
+                p {
+                  gap: 0.5rem;
+                }
+              }
+              @include mixins.lg {
+                p {
+                  font-size: 1rem;
+
+                  i {
+                    font-size: 1.25rem;
+                  }
+                }
+              }
+              @include mixins.xl {
+                p {
+                  gap: 0.75rem;
+
+                  i {
+                    font-size: 1.5rem;
+                  }
+                }
+              }
+            }
+
+            .professionalCareer__company {
+              @include mixins.min-desktop {
+                padding-bottom: 1rem;
+              }
+              @include mixins.md {
+                padding-bottom: 0;
+                border-bottom: none;
+              }
+              @include mixins.lg {
+                padding: 1rem 00;
+              }
+              @include mixins.xl {
+                padding: 0;
               }
             }
           }
 
-          .professionalCareer__activities {
-            ul {
+          .professionalCareer__body {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            .professionalCareer__activities,
+            .professionalCareer__tecnologies {
+              display: flex;
               flex-direction: column;
-              flex-wrap: nowrap;
-              align-items: flex-start;
+              gap: 0.5rem;
+
+              h4 {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 1rem;
+              }
+
+              ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+
+                li {
+                  padding: 0.25rem 0.5rem;
+                  font-size: 0.75rem;
+                  font-weight: 700;
+                  color: variables.$another-quaternary-color;
+                  border-radius: 0.25rem;
+                  border: 0.125rem solid variables.$black;
+                }
+              }
+            }
+
+            .professionalCareer__activities {
+              ul {
+                flex-direction: column;
+                flex-wrap: nowrap;
+                align-items: flex-start;
+              }
             }
           }
+        }
+      }
+    }
+
+    .professionalCareer__formation {
+      @include mixins.sm {
+        gap: 2rem;
+      }
+
+      .professionalCareer__qualifications {
+        @include mixins.sm {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
         }
       }
     }

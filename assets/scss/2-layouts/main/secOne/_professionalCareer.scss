@@ -30,7 +30,7 @@
     gap: 1.5rem;
 
     .professionalCareer__myPhoto {
-      width: 75%;
+      width: 50%;
 
       img {
         height: 100%;
@@ -248,14 +248,15 @@
 
     .professionalCareer__qualifications {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
       gap: 1.5rem;
 
-      .splide {
-        flex: 1 1 0;
-        height: 32rem;
+      .carousel {
+        max-width: 100%;
+        height: 22rem;
         border: 0.125rem solid variables.$black;
         border-radius: 0.25rem;
         box-shadow: variables.$shadow-medium;
@@ -263,8 +264,9 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background-color: variables.$secondary-color;
 
-        h3 {
+        > div:nth-child(1) {
           font-size: 1.25rem;
           border-bottom: 0.125rem solid variables.$black;
           width: 100%;
@@ -273,17 +275,19 @@
           background-color: variables.$secondary-color;
         }
 
-        .splide__track {
-          height: 100%;
+        .swiperOne,
+        .swiperTwo {
           width: 100%;
+          width: 100%;
+        }
 
-          li {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
+        .swiper-slide {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          max-width: 100%;
         }
       }
     }
