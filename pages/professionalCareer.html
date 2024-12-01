@@ -31,9 +31,10 @@
     />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <link
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
     <title>Ruan Moraes | Certificações e Certificados</title>
   </head>
@@ -271,34 +272,78 @@
                   <div>
                     <h3>Certificações</h3>
                   </div>
-                  <div class="swiperOne">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">Slide 1</div>
-                      <div class="swiper-slide">Slide 2</div>
-                      <div class="swiper-slide">Slide 3</div>
+                  <div class="splide">
+                    <div class="splide__track">
+                      <ul class="splide__list">
+                        <li class="splide__slide">Slide 01</li>
+                        <li class="splide__slide">Slide 02</li>
+                        <li class="splide__slide">Slide 03</li>
+                      </ul>
                     </div>
-                    <div class="swiper-scrollbar"></div>
+                    <div class="my-slider-progress">
+                      <div
+                        class="my-slider-progress-bar quaternary__backgroundColor"
+                      ></div>
+                    </div>
                   </div>
                 </div>
                 <div class="carousel">
                   <div>
                     <h3>Certificados</h3>
                   </div>
-                  <div class="swiperTwo">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">Slide 1</div>
-                      <div class="swiper-slide">Slide 2</div>
-                      <div class="swiper-slide">Slide 3</div>
+                  <div class="splide">
+                    <div class="splide__track">
+                      <ul class="splide__list">
+                        <li class="splide__slide">Slide 01</li>
+                        <li class="splide__slide">Slide 02</li>
+                        <li class="splide__slide">Slide 03</li>
+                      </ul>
                     </div>
-                    <div class="swiper-scrollbar"></div>
+                    <div class="my-slider-progress">
+                      <div
+                        class="my-slider-progress-bar quaternary__backgroundColor"
+                      ></div>
+                    </div>
                   </div>
                 </div>
                 <div class="professionalCareer__faculty">
-                  <div>
-                    <div>
-                      <h3></h3>
+                  <div class="professionalCareer__item">
+                    <div class="professionalCareer__header">
+                      <div class="professionalCareer__name">
+                        <div>
+                          <h3>Bacharelado em Engenharia de Software</h3>
+                        </div>
+                        <div>
+                          <p>
+                            <span>
+                              <i class="fa-regular fa-building"></i>
+                            </span>
+                            <span>Uninter</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="professionalCareer__date">
+                        <div>
+                          <p>
+                            <span>
+                              <i class="fa-solid fa-calendar-days"></i>
+                            </span>
+                            <span
+                              ><time datetime="2024-08-01"> 11/2023 </time> -
+                              11/2027</span
+                            >
+                          </p>
+                        </div>
+                        <div>
+                          <p>
+                            <span>
+                              <i class="fa-solid fa-book"></i>
+                            </span>
+                            <span>3º Período</span>
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                    <div></div>
                   </div>
                 </div>
               </div>
@@ -454,39 +499,22 @@
       <i class="fa-solid fa-gear"></i>
     </div>
   </body>
-  <script type="module">
-    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
+  <script>
+    document.querySelectorAll('.splide').forEach((element) => {
+      const splide = new Splide(element, {
+        type: 'fade',
+        pagination: false,
+      });
+      const bar = splide.root.querySelector('.my-slider-progress-bar');
 
-    const swiper = new Swiper('.swiperOne', {
-      slidesPerView: 1,
-      loop: true,
-      autoplay: {
-        delay: 5000,
-      },
-      mousewheel: {
-        invert: true,
-      },
-      scrollbar: {
-        el: '.swiper-scrollbar',
-        draggable: true,
-      },
-      spaceBetween: 4,
-    });
+      splide.on('mounted move', function () {
+        const end = splide.Components.Controller.getEnd() + 1;
+        const rate = Math.min((splide.index + 1) / end, 1);
 
-    const swiperTwo = new Swiper('.swiperTwo', {
-      slidesPerView: 1,
-      loop: true,
-      autoplay: {
-        delay: 5000,
-      },
-      mousewheel: {
-        invert: true,
-      },
-      scrollbar: {
-        el: '.swiper-scrollbar',
-        draggable: true,
-      },
-      spaceBetween: 4,
+        bar.style.width = String(100 * rate) + '%';
+      });
+
+      splide.mount();
     });
   </script>
 </html>

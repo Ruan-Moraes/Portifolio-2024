@@ -318,7 +318,13 @@
       .professionalCareer__qualifications {
         @include mixins.sm {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(4, 1fr);
+
+          .carousel {
+            // TODO: Cada carousel vai ocupar 2 colunas.
+
+            grid-column: span 2;
+          }
         }
       }
     }
