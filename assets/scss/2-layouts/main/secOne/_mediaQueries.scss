@@ -143,6 +143,13 @@
           }
           @include mixins.md {
             width: 35%;
+
+            img {
+              height: 16rem;
+            }
+          }
+          @include mixins.lg {
+            width: 15.6055rem;
           }
         }
 
@@ -188,14 +195,12 @@
       }
 
       .professionalCareer__items {
-        // TODO: Mexer quando o número de itens for maior que 1.
-
         .professionalCareer__item {
           @include mixins.min-desktop {
             padding: 1rem;
           }
           @include mixins.md {
-            max-width: 50%;
+            grid-column: span 2;
           }
 
           .professionalCareer__header {
@@ -319,11 +324,42 @@
         @include mixins.sm {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
+        }
 
-          .carousel {
-            // TODO: Cada carousel vai ocupar 2 colunas.
+        .carousel {
+          @include mixins.sm {
+            grid-column: span 4;
+          }
 
+          @include mixins.md {
             grid-column: span 2;
+          }
+
+          .splide__slide {
+            > div:nth-child(2) {
+              > div:nth-child(1) {
+                @include mixins.xl {
+                  ul {
+                    flex-direction: row !important;
+                    gap: 1rem !important;
+
+                    li {
+                      padding: 0.25rem 0.75rem !important;
+                      flex-grow: 1;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .professionalCareer__faculty {
+          @include mixins.sm {
+            grid-column: span 4;
+          }
+          @include mixins.md {
+            grid-column: 2 / 4;
           }
         }
       }

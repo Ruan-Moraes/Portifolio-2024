@@ -16,7 +16,7 @@ export function showBlurOnBody() {
 }
 
 export function getDynamicElementsDOM(selector, multiple = false) {
-  const timeout = 2500;
+  const timeout = 10000;
   const intervalTime = 25;
 
   return new Promise((resolve, reject) => {

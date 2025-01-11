@@ -65,7 +65,7 @@ export default function applyingSettings() {
   });
 }
 
-// * Lógica para mudar o tema do site
+// * Lógica para mudar o Tema do Sistema
 
 function applyTheme(selectedThemeValue) {} // TODO - Andamento
 

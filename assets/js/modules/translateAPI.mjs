@@ -91,6 +91,12 @@ export default async function translateDynamicTexts(source, target) {
 }
 
 function apiTextTreatment(text) {
+  console.log(
+    Array.from(text.split(',').map((text) => text.trim())).map((text) => {
+      return text.replace(/ \|/g, ',');
+    })
+  );
+
   return Array.from(text.split(',').map((text) => text.trim())).map((text) => {
     return text.replace(/ \|/g, ',');
   });

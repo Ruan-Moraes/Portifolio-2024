@@ -29,4 +29,4 @@ Todo código foi feito do absoluto zero, sem a copiar e colar de códigos pronto
 
 Você pode clonar o repositório e abrir o arquivo `index.html` no seu navegador. Lembre-se é necessário criar um servidor local para que as requisições das APIs funcionem corretamente e o site seja exibido corretamente.
 
-Ou você pode acessar o site clicando em: [Acessar Portifólio](https://ruan-moraes.github.io/Portifolio-2024/).
+Ou você pode acessar o site clicando em: [Acessar Portifólio](https://portifolio-ruan-2024.vercel.app/).

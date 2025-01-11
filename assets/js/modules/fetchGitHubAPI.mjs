@@ -48,7 +48,9 @@ async function requestAPI() {
     'Translate-API',
     'To-do-list',
     'Proxy-translate',
-    'PortfolioDB-API',
+    'student-management-ui',
+    'contact_system',
+    'student_management_api',
   ];
 
   return await fetch(
@@ -256,6 +258,21 @@ function disablePagesDisplays(currentColor) {
     `${currentColor}__backgroundColor--selected`
   );
   projectsPagesDOM[0].classList.add('projects__pageIsDisplayed');
+
+  alertPishing();
+}
+
+function alertPishing() {
+  if (getValuesLocalStorage('alertPishing') == null) {
+    alert(
+      `Antes de continuar, só um aviso: os deploys podem dar um alerta falso de phishing, mas os projetos são seguros. Isso deve ser porque recriei sites inspirados no Facebook e Spotify. 👍
+
+Before continuing, just a warning: deploys may give a false phishing alert, but the projects are safe. This should be because I recreated sites inspired by Facebook and Spotify. 👍
+    `
+    );
+  }
+
+  setValuesInLocalStorage('alertPishing', true);
 }
 
 function whichPageToDisplay() {

@@ -83,7 +83,7 @@ export default async function translateTextToPortuguese() {
 
     document.querySelector(
       '.settings > .settings__body > div:nth-child(1) > h3'
-    ).textContent = 'Tema do Sistema';
+    ).textContent = 'Alterar Tema - Andamento';
 
     const themeTexts = ['Tema do Sistema', 'Tema Escuro', 'Tema Claro'];
 
@@ -415,74 +415,101 @@ export default async function translateTextToPortuguese() {
   async function translateTextFromProfessionalCareer() {
     if (!currentPath.includes('pages/professionalCareer.html')) return;
 
-    document.querySelector('[data-translate_certificationTitle]').innerText =
-      'Minhas Certificações';
-    document.querySelector('[data-translate_certificateTitle]').innerText =
-      'Meus Certificados';
+    document.querySelector(
+      '.professionalCareer .professionalCareer__apresentation .professionalCareer__aboutMe .professionalCareer__title h2 span:nth-child(1)'
+    ).textContent = 'umPoucoSobreMim';
+    document.querySelector(
+      '.professionalCareer .professionalCareer__apresentation .professionalCareer__aboutMe .professionalCareer__content div:nth-child(1) p span:nth-child(2)'
+    ).textContent =
+      '"Sou um desenvolvedor full stack com experiência em Java (Spring), React, Node.js e TypeScript. Curto jogos, hardwares e tecnologia, além de ser calmo e um pouco engraçado (ou pelo menos eu tento). Atualmente, trabalho em projetos focados em APIs e sites, com planos futuros de explorar o desenvolvimento mobile com Flutter e, bem mais adiante, a área de cibersegurança."';
 
-    await Array.from(
-      document.querySelectorAll('[data-translate_topicsCovered]')
-    ).forEach((element) => {
-      element.innerText = 'Temas Abordados:';
+    document.querySelector(
+      'body > main > section > div > div > div.professionalCareer__trajectory > div.professionalCareer__title > h2'
+    ).textContent = 'Trajetória Profissional';
+
+    document.querySelector(
+      '.professionalCareer .professionalCareer__trajectory .professionalCareer__items .professionalCareer__item .professionalCareer__header .professionalCareer__company div:nth-child(1) h3'
+    ).textContent = 'Desenvolvedor Freelancer';
+    document.querySelector(
+      'body > main > section > div > div > div.professionalCareer__trajectory > div.professionalCareer__items > div > div.professionalCareer__header > div.professionalCareer__company > div:nth-child(2) > p > span:nth-child(2)'
+    ).textContent = 'Autônomo';
+    document.querySelector(
+      'body > main > section > div > div > div.professionalCareer__trajectory > div.professionalCareer__items > div > div.professionalCareer__header > div.professionalCareer__date > div:nth-child(1) > p > span:nth-child(2) > span'
+    ).textContent = 'Atualmente';
+    document.querySelector(
+      'body > main > section > div > div > div.professionalCareer__trajectory > div.professionalCareer__items > div > div.professionalCareer__header > div.professionalCareer__date > div:nth-child(2) > p > span:nth-child(2)'
+    ).textContent = 'Tempo Integral';
+    document.querySelector(
+      'body > main > section > div > div > div.professionalCareer__trajectory > div.professionalCareer__items > div > div.professionalCareer__body > div.professionalCareer__activities > div:nth-child(1) > h4 > span.quaternary__color'
+    ).textContent = 'Atividades Envolvidas:';
+    document.querySelector(
+      'body > main > section > div > div > div.professionalCareer__trajectory > div.professionalCareer__items > div > div.professionalCareer__body > div.professionalCareer__activities > div:nth-child(2) > ul > li:nth-child(1)'
+    ).textContent = 'Desenvolvimento e Manutenção de Sites';
+    document.querySelector(
+      'body > main > section > div > div > div.professionalCareer__trajectory > div.professionalCareer__items > div > div.professionalCareer__body > div.professionalCareer__activities > div:nth-child(2) > ul > li:nth-child(2)'
+    ).textContent = 'Desenvolvimento e Manunteção de Aplicativos Mobile';
+    document.querySelector(
+      'body > main > section > div > div > div.professionalCareer__trajectory > div.professionalCareer__items > div > div.professionalCareer__body > div.professionalCareer__tecnologies > div:nth-child(1) > h4 > span.quaternary__color'
+    ).textContent = 'Tecnologias usadas:';
+
+    document.querySelector(
+      'body > main > section > div > div > div.professionalCareer__formation > div.professionalCareer__title > h2'
+    ).textContent = 'Formação Profissional';
+
+    document.querySelector(
+      'body > main > section > div > div > div.professionalCareer__formation > div.professionalCareer__qualifications > div:nth-child(1) > div:nth-child(1) > h3'
+    ).textContent = 'Certificações';
+    document.querySelector('#splide01-list > li').textContent =
+      'Não há nada aqui.';
+    document.querySelector(
+      'body > main > section > div > div > div.professionalCareer__formation > div.professionalCareer__qualifications > div:nth-child(2) > div:nth-child(1) > h3'
+    ).textContent = 'Certificados';
+
+    Array.from(await getDynamicElementsDOM('[translate__name]', true)).map(
+      (element) => {
+        if (element.innerHTML.startsWith('Course of')) {
+          const courseName = element.innerHTML.split('Course of')[1].trim();
+
+          element.innerHTML = 'Curso de ' + courseName;
+        }
+      }
+    );
+    Array.from(await getDynamicElementsDOM('[translate__date]', true)).map(
+      (element) => {
+        element.innerHTML = 'Término em:';
+      }
+    );
+    Array.from(await getDynamicElementsDOM('[translate__platform]', true)).map(
+      (element) => {
+        element.innerHTML = 'Plataforma:';
+      }
+    );
+    Array.from(
+      await getDynamicElementsDOM('[translate__certificate]', true)
+    ).map((element) => {
+      element.innerHTML = 'Visualizar Certificado';
     });
 
-    await Array.from(
-      document.querySelectorAll('[data-translate_conclusion]')
-    ).forEach((element) => {
-      element.innerText = 'Conclusão:';
-    });
+    document.querySelector(
+      'body > main > section > div > div > div.professionalCareer__formation > div.professionalCareer__qualifications > div.professionalCareer__faculty > div > div > div.professionalCareer__name > div:nth-child(1) > h3'
+    ).textContent = 'Bacharelado em Engenharia de Software';
+    document.querySelector(
+      'body > main > section > div > div > div.professionalCareer__formation > div.professionalCareer__qualifications > div.professionalCareer__faculty > div > div > div.professionalCareer__name > div:nth-child(2) > p > span:nth-child(2) > span:nth-child(2)'
+    ).textContent = 'Centro universitário';
+    document.querySelector(
+      'body > main > section > div > div > div.professionalCareer__formation > div.professionalCareer__qualifications > div.professionalCareer__faculty > div > div > div.professionalCareer__date > div:nth-child(2) > p > span:nth-child(2)'
+    ).textContent = '3º Período';
 
-    const monthTranslations = {
-      January: 'Janeiro de',
-      February: 'Fevereiro de',
-      March: 'Março de',
-      April: 'Abril de',
-      May: 'Maio de',
-      June: 'Junho de',
-      July: 'Julho de',
-      August: 'Agosto de',
-      September: 'Setembro de',
-      October: 'Outubro de',
-      November: 'Novembro de',
-      December: 'Dezembro de',
-    };
+    // if (localStorage.getItem('translationsQualificationsInPortuguese')) {
+    //   const allTranslations = JSON.parse(
+    //     localStorage.getItem('translationsQualificationsInPortuguese')
+    //   );
 
-    await Array.from(
-      document.querySelectorAll('[data-translate_monthOfConclusion]')
-    ).forEach((element) => {
-      if (monthTranslations[element.textContent] === undefined) return;
+    //   Array.from(document.querySelectorAll('[data-translate]')).map(
+    //     (element, index) => (element.textContent = allTranslations[index])
+    //   );
 
-      element.textContent = monthTranslations[element.textContent];
-    });
-
-    await Array.from(
-      document.querySelectorAll('[data-translate_duration]')
-    ).forEach((element) => {
-      element.textContent = 'Duração:';
-    });
-
-    await Array.from(
-      document.querySelectorAll('[data-translate_hours]')
-    ).forEach((element) => {
-      element.textContent = 'Horas';
-    });
-
-    await Array.from(
-      document.querySelectorAll('[data-translate_viewCertificate]')
-    ).forEach((element) => {
-      element.textContent = 'Visualizar Certificado';
-    });
-
-    if (localStorage.getItem('translationsQualificationsInPortuguese')) {
-      const allTranslations = JSON.parse(
-        localStorage.getItem('translationsQualificationsInPortuguese')
-      );
-
-      Array.from(document.querySelectorAll('[data-translate]')).map(
-        (element, index) => (element.textContent = allTranslations[index])
-      );
-
-      return;
-    }
+    //   return;
+    // }
   }
 }

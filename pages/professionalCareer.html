@@ -127,7 +127,7 @@
             <div class="professionalCareer__apresentation">
               <div class="professionalCareer__myPhoto">
                 <img
-                  src="https://fakeimg.pl/1024x1024?text=Minha+Foto"
+                  src="../assets/medias/my-photo/photo.jpg"
                   alt="Minha Foto"
                 />
               </div>
@@ -147,15 +147,13 @@
                     <p>
                       <span>return</span>
                       <span>
-                        `Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Mollitia recusandae dicta deserunt repellendus
-                        reiciendis nam cumque vitae nemo esse magnam fugiat
-                        autem tenetur, cum temporibus quas eaque, id, placeat
-                        suscipit! Lorem ipsum dolor, sit amet consectetur
-                        adipisicing elit. Autem labore in nisi nostrum nesciunt,
-                        dolores, at repellat sed inventore sit temporibus,
-                        tenetur itaque error fugit hic obcaecati veniam
-                        suscipit! Quae.`
+                        `Sou um desenvolvedor full stack com experiência em Java
+                        (Spring), React, Node.js e TypeScript. Curto jogos,
+                        hardwares e tecnologia, além de ser calmo e um pouco
+                        engraçado (ou pelo menos eu tento). Atualmente, trabalho
+                        em projetos focados em APIs e sites, com planos futuros
+                        de explorar o desenvolvimento mobile com Flutter e, bem
+                        mais adiante, a área de cibersegurança.`
                       </span>
                     </p>
                   </div>
@@ -196,8 +194,8 @@
                             <i class="fa-solid fa-calendar-days"></i>
                           </span>
                           <span
-                            ><time datetime="2024-08-01"> 04/2024 </time> -
-                            Atualmente</span
+                            ><time datetime="2024-08-01"> 12/2024 </time> -
+                            <span>Atualmente</span></span
                           >
                         </p>
                       </div>
@@ -275,9 +273,17 @@
                   <div class="splide">
                     <div class="splide__track">
                       <ul class="splide__list">
-                        <li class="splide__slide">Slide 01</li>
-                        <li class="splide__slide">Slide 02</li>
-                        <li class="splide__slide">Slide 03</li>
+                        <li
+                          style="
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-weight: 700;
+                          "
+                        >
+                          Não há nada aqui.
+                        </li>
                       </ul>
                     </div>
                     <div class="my-slider-progress">
@@ -293,11 +299,7 @@
                   </div>
                   <div class="splide">
                     <div class="splide__track">
-                      <ul class="splide__list">
-                        <li class="splide__slide">Slide 01</li>
-                        <li class="splide__slide">Slide 02</li>
-                        <li class="splide__slide">Slide 03</li>
-                      </ul>
+                      <ul class="splide__list"></ul>
                     </div>
                     <div class="my-slider-progress">
                       <div
@@ -311,14 +313,19 @@
                     <div class="professionalCareer__header">
                       <div class="professionalCareer__name">
                         <div>
-                          <h3>Bacharelado em Engenharia de Software</h3>
+                          <h3 class="quaternary__color">
+                            Bacharelado em Engenharia de Software
+                          </h3>
                         </div>
                         <div>
                           <p>
                             <span>
                               <i class="fa-regular fa-building"></i>
                             </span>
-                            <span>Uninter</span>
+                            <span
+                              ><span>Uninter</span> -
+                              <span>Centro universitário</span></span
+                            >
                           </p>
                         </div>
                       </div>
@@ -500,19 +507,120 @@
     </div>
   </body>
   <script>
-    document.querySelectorAll('.splide').forEach((element) => {
+    async function fetchCertificates() {
+      try {
+        const certificates = await fetch(
+          'https://zesty-palmier-b5494f.netlify.app/.netlify/functions/proxyQualifications',
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        ).then((response) => response.json());
+
+        return certificates;
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    function setValuesInLocalStorage(itemName, ...data) {
+      localStorage.setItem(itemName, JSON.stringify([...data]));
+    }
+
+    document.querySelectorAll('.splide').forEach(async (element, index) => {
       const splide = new Splide(element, {
         type: 'fade',
         pagination: false,
       });
       const bar = splide.root.querySelector('.my-slider-progress-bar');
 
-      splide.on('mounted move', function () {
-        const end = splide.Components.Controller.getEnd() + 1;
-        const rate = Math.min((splide.index + 1) / end, 1);
+      window.addEventListener('resize', () => {
+        if (document.querySelector('html').offsetWidth < 640) {
+          const widthMain = document.querySelector('.main').offsetWidth - 24;
 
-        bar.style.width = String(100 * rate) + '%';
+          const carousels = document.querySelectorAll('.carousel');
+
+          carousels.forEach((carousel) => {
+            carousel.style.width = widthMain + 'px';
+          });
+        }
+
+        if (document.querySelector('html').offsetWidth >= 640) {
+          const carousels = document.querySelectorAll('.carousel');
+
+          carousels.forEach((carousel) => {
+            carousel.style.width = 'auto';
+          });
+        }
       });
+
+      // Trigger resize event on page load
+      window.dispatchEvent(new Event('resize'));
+
+      if (index == 1) {
+        const containerCertificates = document.querySelector(
+          '.carousel:nth-child(2) .splide__list'
+        );
+
+        let certificates = [];
+
+        if (localStorage.getItem('certificates')) {
+          certificates = JSON.parse(localStorage.getItem('certificates'));
+        }
+
+        if (!certificates.length) {
+          certificates = await fetchCertificates();
+
+          setValuesInLocalStorage('certificates', ...certificates);
+        }
+
+        for (let i = 0; i < certificates.length; i++) {
+          const isNext = i == 1 ? 'is-next' : '';
+          const isActived = i == 0 ? 'is-active is-visible' : isNext;
+
+          const data = certificates[i];
+
+          const HTML = `
+            <li class="splide__slide">
+              <div>
+                <h4 translate__name>${data.name}</h4>
+              </div>
+              <div>
+                <div>
+                  <ul>
+                    <li>
+                      <span translate__date>Término em:</span>
+                      <time
+                        datetime="2022-08-01"
+                        class="quaternary__color"
+                        >${data.endDate}</time
+                      >
+                    </li>
+                    <li>
+                      <span translate__platform>Plataforma:</span>
+                      <span class="quaternary__color">${data.platform}</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="quaternary__backgroundColor quaternary__backgroundColor--lessLightHover">
+                  <a href="${data.credentialUrl}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" style="height: 100%;" translate__certificate>Visualizar Certificado</a>
+                </div>
+              </div>
+            </li>
+        `;
+
+          containerCertificates.insertAdjacentHTML('beforeend', HTML);
+        }
+
+        splide.on('mounted move', function () {
+          const end = splide.Components.Controller.getEnd() + 1;
+          const rate = Math.min((splide.index + 1) / end, 1);
+
+          bar.style.width = String(100 * rate) + '%';
+        });
+      }
 
       splide.mount();
     });

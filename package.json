@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "sass --style compressed ./assets/scss/build.scss:./assets/css/styles.css --watch",
-    "sortProperties": "stylelint \"./assets/scss/**/*.scss\" --fix"
+    "sortProperties": "stylelint \"./assets/scss/**/*.scss\" --fix",
+    "build:prod": "sass --style compressed ./assets/scss/build.scss:./assets/css/styles.css"
   },
   "keywords": [],
   "author": "Ruan Moraes Santos Barbosa",

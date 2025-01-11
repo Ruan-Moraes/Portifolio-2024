@@ -7,7 +7,6 @@ import menu from './modules/menu.mjs';
 import settings from './modules/settings.mjs';
 import menuAndSettings from './modules/menuAndSettings.mjs';
 import customSelect from './modules/customSelect.mjs';
-import fetchQualificationsAPI from './modules/qualificationsAPI.mjs';
 
 // * Garante que o código só será executado após o carregamento do conteúdo da página
 
@@ -45,8 +44,6 @@ window.addEventListener('DOMContentLoaded', () => {
   customSelect();
 
   // * Lógica para resgatar as qualificações do banco de dados
-
-  fetchQualificationsAPI();
 
   // * Lógica para o carrossel de certificados e certificações
 });
