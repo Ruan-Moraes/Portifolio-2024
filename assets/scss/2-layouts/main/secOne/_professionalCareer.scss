@@ -259,7 +259,73 @@
       }
 
       .professionalCareer__faculty {
-        grid-column: 2 / 4;
+        width: 100%;
+        padding: 0.5rem 0.5rem 1.5rem 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        border-radius: 0.25rem;
+        border: 0.125rem solid variables.$black;
+        box-shadow: variables.$shadow-medium;
+
+        .professionalCareer__header {
+          display: flex;
+          flex-direction: column;
+
+          .professionalCareer__name {
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 0.125rem solid variables.$black;
+
+            h3 {
+              text-align: center;
+              font-size: 1.25rem;
+              color: variables.$quaternary-color;
+            }
+
+            span {
+              font-size: 1rem;
+              color: variables.$another-quaternary-color;
+            }
+          }
+
+          .professionalCareer__date {
+            width: max-content;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: variables.$another-quaternary-color;
+            gap: 0.5rem;
+
+            text-align: center;
+            border-radius: 0 0 0.25rem 0.25rem;
+            border: 0.125rem solid variables.$black;
+            border-top: none;
+
+            p {
+              display: flex;
+              align-items: center;
+              gap: 0.25rem;
+              font-size: 0.75rem;
+
+              i {
+                font-size: 1rem;
+              }
+            }
+          }
+
+          p {
+            font-size: 1rem;
+            font-weight: 700;
+            color: variables.$another-quaternary-color;
+          }
+        }
       }
     }
   }
@@ -270,9 +336,12 @@
     gap: 1.5rem;
 
     .professionalCareer__items {
-      // TODO: Mexer quando o número de itens for maior que 1.
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
 
       .professionalCareer__item {
+        grid-column: span 4;
         width: 100%;
         padding: 0.5rem;
         display: flex;

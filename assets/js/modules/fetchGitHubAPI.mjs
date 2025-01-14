@@ -48,7 +48,7 @@ async function requestAPI() {
     'Translate-API',
     'To-do-list',
     'Proxy-translate',
-    'PortfolioDB-API',
+    'db-json',
   ];
 
   return await fetch(

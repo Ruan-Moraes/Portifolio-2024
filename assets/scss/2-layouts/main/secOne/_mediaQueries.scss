@@ -188,14 +188,12 @@
       }
 
       .professionalCareer__items {
-        // TODO: Mexer quando o número de itens for maior que 1.
-
         .professionalCareer__item {
           @include mixins.min-desktop {
             padding: 1rem;
           }
           @include mixins.md {
-            max-width: 50%;
+            grid-column: span 2;
           }
 
           .professionalCareer__header {
@@ -319,11 +317,24 @@
         @include mixins.sm {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
+        }
 
-          .carousel {
-            // TODO: Cada carousel vai ocupar 2 colunas.
-
+        .carousel {
+          // TODO: Cada carousel vai ocupar 2 colunas.
+          @include mixins.sm {
+            grid-column: span 4;
+          }
+          @include mixins.md {
             grid-column: span 2;
+          }
+        }
+
+        .professionalCareer__faculty {
+          @include mixins.sm {
+            grid-column: span 4;
+          }
+          @include mixins.md {
+            grid-column: 2 / 4;
           }
         }
       }

@@ -5,7 +5,7 @@ import { setValuesInLocalStorage } from './others.mjs';
 export default async function fetchQualificationsAPI() {
   try {
     const response = await fetch(
-      'https://zesty-palmier-b5494f.netlify.app/.netlify/functions/proxyQualifications',
+      '',
       {
         method: 'GET',
         headers: {
@@ -23,7 +23,7 @@ export default async function fetchQualificationsAPI() {
       const containerCertificates = document.querySelector(
         '.certificates__items'
       );
-      
+
       const data = getQualificationsData(certificates[i]);
 
       const HTML = `
@@ -65,7 +65,7 @@ export default async function fetchQualificationsAPI() {
                 </p>
                 <p>
                   <strong data-translate_duration>Duração:</strong>
-                  <span>${data.duration.split('(')[0]} 
+                  <span>${data.duration.split('(')[0]}
                   <span data-translate_hours>Horas</span>
                   </span>
                 </p>
