@@ -469,15 +469,15 @@ export default async function translateTextToPortuguese() {
     // 1 - Title
     // 2 - Description
 
-    document.querySelector(
-      '#splide02-slide01 > div:nth-child(2) > div:nth-child(1) > ul > li:nth-child(1) > span'
-    ).textContent = 'Término em:';
-    document.querySelector(
-      '#splide02-slide01 > div:nth-child(2) > div:nth-child(1) > ul > li:nth-child(2) > span:nth-child(1)'
-    ).textContent = 'Plataforma:';
-    document.querySelector(
-      '#splide02-slide01 > div:nth-child(2) > div.quaternary__backgroundColor.quaternary__backgroundColor--lessLightHover'
-    ).textContent = 'Visualizar Certificado';
+    // document.querySelector(
+    //   '#splide02-slide01 > div:nth-child(2) > div:nth-child(1) > ul > li:nth-child(1) > span'
+    // ).textContent = 'Término em:';
+    // document.querySelector(
+    //   '#splide02-slide01 > div:nth-child(2) > div:nth-child(1) > ul > li:nth-child(2) > span:nth-child(1)'
+    // ).textContent = 'Plataforma:';
+    // document.querySelector(
+    //   '#splide02-slide01 > div:nth-child(2) > div.quaternary__backgroundColor.quaternary__backgroundColor--lessLightHover'
+    // ).textContent = 'Visualizar Certificado';
 
     document.querySelector(
       'body > main > section > div > div > div.professionalCareer__formation > div.professionalCareer__qualifications > div.professionalCareer__faculty > div > div > div.professionalCareer__name > div:nth-child(1) > h3'

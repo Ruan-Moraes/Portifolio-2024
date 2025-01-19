@@ -308,6 +308,7 @@
       }
     }
 
+
     .professionalCareer__formation {
       @include mixins.sm {
         gap: 2rem;
@@ -320,12 +321,30 @@
         }
 
         .carousel {
-          // TODO: Cada carousel vai ocupar 2 colunas.
           @include mixins.sm {
             grid-column: span 4;
           }
+
           @include mixins.md {
             grid-column: span 2;
+          }
+
+          .splide__slide {
+            > div:nth-child(2) {
+              > div:nth-child(1) {
+                @include mixins.xl {
+                  ul {
+                    flex-direction: row !important;
+                    gap: 1rem !important;
+
+                    li {
+                      padding: 0.25rem 0.75rem !important;
+                      flex-grow: 1;
+                    }
+                  }
+                }
+              }
+            }
           }
         }
 

@@ -300,18 +300,12 @@
                   <div class="splide">
                     <div class="splide__track">
                       <ul class="splide__list">
-                        <li class="splide__slide">
+                        <!-- <li class="splide__slide">
                           <div>
                             <h4>Lorem ipsum Lorem Lorem</h4>
                           </div>
                           <div>
                             <div>
-                              <p>
-                                Curso de Desenvolvimento Web Completo 2021 - 20
-                                cursos + 20 projetos Lorem ipsum dolor sit amet,
-                                consectetur adipisicing elit. Vero impedit optio
-                                repellendus.
-                              </p>
                               <ul>
                                 <li>
                                   <span>Término em:</span>
@@ -340,8 +334,40 @@
                             </div>
                           </div>
                         </li>
-                        <li class="splide__slide">Slide 02</li>
-                        <li class="splide__slide">Slide 03</li>
+                        <li class="splide__slide">
+                          <div>
+                            <h4>Lorem ipsum Lorem Lorem</h4>
+                          </div>
+                          <div>
+                            <div>
+                              <ul>
+                                <li>
+                                  <span>Término em:</span>
+                                  <time
+                                    datetime="2022-08-01"
+                                    class="quaternary__color"
+                                    >08/2022</time
+                                  >
+                                </li>
+                                <li>
+                                  <span>Plataforma:</span>
+                                  <span class="quaternary__color">Udemy</span>
+                                </li>
+                              </ul>
+                            </div>
+                            <div
+                              class="quaternary__backgroundColor quaternary__backgroundColor--lessLightHover"
+                            >
+                              <a
+                                href=""
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                referrerpolicy="no-referrer"
+                                >Visualizar Certificado</a
+                              >
+                            </div>
+                          </div>
+                        </li> -->
                       </ul>
                     </div>
                     <div class="my-slider-progress">
@@ -550,19 +576,85 @@
     </div>
   </body>
   <script>
-    document.querySelectorAll('.splide').forEach((element) => {
+    async function fetchCertificates() {
+      try {
+        const certificates = await fetch(
+          'https://zesty-palmier-b5494f.netlify.app/.netlify/functions/proxyQualifications',
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        ).then((response) => response.json());
+
+        return certificates;
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    document.querySelectorAll('.splide').forEach(async (element, index) => {
       const splide = new Splide(element, {
         type: 'fade',
         pagination: false,
       });
       const bar = splide.root.querySelector('.my-slider-progress-bar');
 
-      splide.on('mounted move', function () {
-        const end = splide.Components.Controller.getEnd() + 1;
-        const rate = Math.min((splide.index + 1) / end, 1);
+      if (index == 1) {
+        const containerCertificates = document.querySelector(
+          '.carousel:nth-child(2) .splide__list'
+        );
 
-        bar.style.width = String(100 * rate) + '%';
-      });
+        console.log(containerCertificates);
+
+        const certificates = await fetchCertificates();
+
+        for (let i = 0; i < certificates.length; i++) {
+          const isNext = i == 1 ? 'is-next' : '';
+          const isActived = i == 0 ? 'is-active is-visible' : isNext;
+
+          const data = certificates[i];
+
+          const HTML = `
+            <li class="splide__slide">
+              <div>
+                <h4>${data.name}</h4>
+              </div>
+              <div>
+                <div>
+                  <ul>
+                    <li>
+                      <span>Término em:</span>
+                      <time
+                        datetime="2022-08-01"
+                        class="quaternary__color"
+                        >${data.endDate}</time
+                      >
+                    </li>
+                    <li>
+                      <span>Plataforma:</span>
+                      <span class="quaternary__color">${data.platform}</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="quaternary__backgroundColor quaternary__backgroundColor--lessLightHover">
+                  <a href="${data.credentialUrl}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">Visualizar Certificado</a>
+                </div>
+              </div>
+            </li>
+        `;
+
+          containerCertificates.insertAdjacentHTML('beforeend', HTML);
+        }
+
+        splide.on('mounted move', function () {
+          const end = splide.Components.Controller.getEnd() + 1;
+          const rate = Math.min((splide.index + 1) / end, 1);
+
+          bar.style.width = String(100 * rate) + '%';
+        });
+      }
 
       splide.mount();
     });
