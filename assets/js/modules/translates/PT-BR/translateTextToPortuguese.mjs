@@ -83,7 +83,7 @@ export default async function translateTextToPortuguese() {
 
     document.querySelector(
       '.settings > .settings__body > div:nth-child(1) > h3'
-    ).textContent = 'Tema do Sistema';
+    ).textContent = 'Alterar Tema - Andamento';
 
     const themeTexts = ['Tema do Sistema', 'Tema Escuro', 'Tema Claro'];
 
@@ -465,19 +465,30 @@ export default async function translateTextToPortuguese() {
       'body > main > section > div > div > div.professionalCareer__formation > div.professionalCareer__qualifications > div:nth-child(2) > div:nth-child(1) > h3'
     ).textContent = 'Certificados';
 
-    // Todo: Translate the text of the certificates:
-    // 1 - Title
-    // 2 - Description
+    Array.from(await getDynamicElementsDOM('[translate__name]', true)).map(
+      (element) => {
+        if (element.innerHTML.startsWith('Course of')) {
+          const courseName = element.innerHTML.split('Course of')[1].trim();
 
-    // document.querySelector(
-    //   '#splide02-slide01 > div:nth-child(2) > div:nth-child(1) > ul > li:nth-child(1) > span'
-    // ).textContent = 'Término em:';
-    // document.querySelector(
-    //   '#splide02-slide01 > div:nth-child(2) > div:nth-child(1) > ul > li:nth-child(2) > span:nth-child(1)'
-    // ).textContent = 'Plataforma:';
-    // document.querySelector(
-    //   '#splide02-slide01 > div:nth-child(2) > div.quaternary__backgroundColor.quaternary__backgroundColor--lessLightHover'
-    // ).textContent = 'Visualizar Certificado';
+          element.innerHTML = 'Curso de ' + courseName;
+        }
+      }
+    );
+    Array.from(await getDynamicElementsDOM('[translate__date]', true)).map(
+      (element) => {
+        element.innerHTML = 'Término em:';
+      }
+    );
+    Array.from(await getDynamicElementsDOM('[translate__platform]', true)).map(
+      (element) => {
+        element.innerHTML = 'Plataforma:';
+      }
+    );
+    Array.from(
+      await getDynamicElementsDOM('[translate__certificate]', true)
+    ).map((element) => {
+      element.innerHTML = 'Visualizar Certificado';
+    });
 
     document.querySelector(
       'body > main > section > div > div > div.professionalCareer__formation > div.professionalCareer__qualifications > div.professionalCareer__faculty > div > div > div.professionalCareer__name > div:nth-child(1) > h3'
@@ -489,16 +500,16 @@ export default async function translateTextToPortuguese() {
       'body > main > section > div > div > div.professionalCareer__formation > div.professionalCareer__qualifications > div.professionalCareer__faculty > div > div > div.professionalCareer__date > div:nth-child(2) > p > span:nth-child(2)'
     ).textContent = '3º Período';
 
-    if (localStorage.getItem('translationsQualificationsInPortuguese')) {
-      const allTranslations = JSON.parse(
-        localStorage.getItem('translationsQualificationsInPortuguese')
-      );
+    // if (localStorage.getItem('translationsQualificationsInPortuguese')) {
+    //   const allTranslations = JSON.parse(
+    //     localStorage.getItem('translationsQualificationsInPortuguese')
+    //   );
 
-      Array.from(document.querySelectorAll('[data-translate]')).map(
-        (element, index) => (element.textContent = allTranslations[index])
-      );
+    //   Array.from(document.querySelectorAll('[data-translate]')).map(
+    //     (element, index) => (element.textContent = allTranslations[index])
+    //   );
 
-      return;
-    }
+    //   return;
+    // }
   }
 }

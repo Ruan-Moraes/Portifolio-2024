@@ -299,76 +299,7 @@
                   </div>
                   <div class="splide">
                     <div class="splide__track">
-                      <ul class="splide__list">
-                        <!-- <li class="splide__slide">
-                          <div>
-                            <h4>Lorem ipsum Lorem Lorem</h4>
-                          </div>
-                          <div>
-                            <div>
-                              <ul>
-                                <li>
-                                  <span>Término em:</span>
-                                  <time
-                                    datetime="2022-08-01"
-                                    class="quaternary__color"
-                                    >08/2022</time
-                                  >
-                                </li>
-                                <li>
-                                  <span>Plataforma:</span>
-                                  <span class="quaternary__color">Udemy</span>
-                                </li>
-                              </ul>
-                            </div>
-                            <div
-                              class="quaternary__backgroundColor quaternary__backgroundColor--lessLightHover"
-                            >
-                              <a
-                                href=""
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                referrerpolicy="no-referrer"
-                                >Visualizar Certificado</a
-                              >
-                            </div>
-                          </div>
-                        </li>
-                        <li class="splide__slide">
-                          <div>
-                            <h4>Lorem ipsum Lorem Lorem</h4>
-                          </div>
-                          <div>
-                            <div>
-                              <ul>
-                                <li>
-                                  <span>Término em:</span>
-                                  <time
-                                    datetime="2022-08-01"
-                                    class="quaternary__color"
-                                    >08/2022</time
-                                  >
-                                </li>
-                                <li>
-                                  <span>Plataforma:</span>
-                                  <span class="quaternary__color">Udemy</span>
-                                </li>
-                              </ul>
-                            </div>
-                            <div
-                              class="quaternary__backgroundColor quaternary__backgroundColor--lessLightHover"
-                            >
-                              <a
-                                href=""
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                referrerpolicy="no-referrer"
-                                >Visualizar Certificado</a
-                              >
-                            </div>
-                          </div>
-                        </li> -->
-                      </ul>
+                      <ul class="splide__list"></ul>
                     </div>
                     <div class="my-slider-progress">
                       <div
@@ -594,6 +525,10 @@
       }
     }
 
+    function setValuesInLocalStorage(itemName, ...data) {
+      localStorage.setItem(itemName, JSON.stringify([...data]));
+    }
+
     document.querySelectorAll('.splide').forEach(async (element, index) => {
       const splide = new Splide(element, {
         type: 'fade',
@@ -601,14 +536,45 @@
       });
       const bar = splide.root.querySelector('.my-slider-progress-bar');
 
+      window.addEventListener('resize', () => {
+        if (document.querySelector('html').offsetWidth < 640) {
+          const widthMain = document.querySelector('.main').offsetWidth - 24;
+
+          const carousels = document.querySelectorAll('.carousel');
+
+          carousels.forEach((carousel) => {
+            carousel.style.width = widthMain + 'px';
+          });
+        }
+
+        if (document.querySelector('html').offsetWidth >= 640) {
+          const carousels = document.querySelectorAll('.carousel');
+
+          carousels.forEach((carousel) => {
+            carousel.style.width = 'auto';
+          });
+        }
+      });
+
+      // Trigger resize event on page load
+      window.dispatchEvent(new Event('resize'));
+
       if (index == 1) {
         const containerCertificates = document.querySelector(
           '.carousel:nth-child(2) .splide__list'
         );
 
-        console.log(containerCertificates);
+        let certificates = [];
 
-        const certificates = await fetchCertificates();
+        if (localStorage.getItem('certificates')) {
+          certificates = JSON.parse(localStorage.getItem('certificates'));
+        }
+
+        if (!certificates.length) {
+          certificates = await fetchCertificates();
+
+          setValuesInLocalStorage('certificates', ...certificates);
+        }
 
         for (let i = 0; i < certificates.length; i++) {
           const isNext = i == 1 ? 'is-next' : '';
@@ -619,13 +585,13 @@
           const HTML = `
             <li class="splide__slide">
               <div>
-                <h4>${data.name}</h4>
+                <h4 translate__name>${data.name}</h4>
               </div>
               <div>
                 <div>
                   <ul>
                     <li>
-                      <span>Término em:</span>
+                      <span translate__date>Término em:</span>
                       <time
                         datetime="2022-08-01"
                         class="quaternary__color"
@@ -633,13 +599,13 @@
                       >
                     </li>
                     <li>
-                      <span>Plataforma:</span>
+                      <span translate__platform>Plataforma:</span>
                       <span class="quaternary__color">${data.platform}</span>
                     </li>
                   </ul>
                 </div>
                 <div class="quaternary__backgroundColor quaternary__backgroundColor--lessLightHover">
-                  <a href="${data.credentialUrl}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">Visualizar Certificado</a>
+                  <a href="${data.credentialUrl}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" style="height: 100%;" translate__certificate>Visualizar Certificado</a>
                 </div>
               </div>
             </li>

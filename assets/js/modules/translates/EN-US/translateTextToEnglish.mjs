@@ -495,19 +495,30 @@ export default async function translateTextToEnglish() {
       'body > main > section > div > div > div.professionalCareer__formation > div.professionalCareer__qualifications > div:nth-child(2) > div:nth-child(1) > h3'
     ).textContent = 'Certificates';
 
-    // Todo: Translate the text of the certificates:
-    // 1 - Title
-    // 2 - Description
+    Array.from(await getDynamicElementsDOM('[translate__name]', true)).map(
+      (element) => {
+        if (element.innerHTML.startsWith('Curso de')) {
+          const courseName = element.innerHTML.split('Curso de')[1].trim();
 
-    // document.querySelector(
-    //   '#splide02-slide01 > div:nth-child(2) > div:nth-child(1) > ul > li:nth-child(1) > span'
-    // ).textContent = 'End date:';
-    // document.querySelector(
-    //   '#splide02-slide01 > div:nth-child(2) > div:nth-child(1) > ul > li:nth-child(2) > span:nth-child(1)'
-    // ).textContent = 'Platform:';
-    // document.querySelector(
-    //   '#splide02-slide01 > div:nth-child(2) > div.quaternary__backgroundColor.quaternary__backgroundColor--lessLightHover'
-    // ).textContent = 'View Certificate';
+          element.innerHTML = 'Course of ' + courseName;
+        }
+      }
+    );
+    Array.from(await getDynamicElementsDOM('[translate__date]', true)).map(
+      (element) => {
+        element.innerHTML = 'End date:';
+      }
+    );
+    Array.from(await getDynamicElementsDOM('[translate__platform]', true)).map(
+      (element) => {
+        element.innerHTML = 'Platform:';
+      }
+    );
+    Array.from(
+      await getDynamicElementsDOM('[translate__certificate]', true)
+    ).map((element) => {
+      element.innerHTML = 'View Certificate';
+    });
 
     document.querySelector(
       'body > main > section > div > div > div.professionalCareer__formation > div.professionalCareer__qualifications > div.professionalCareer__faculty > div > div > div.professionalCareer__name > div:nth-child(1) > h3'
@@ -519,15 +530,17 @@ export default async function translateTextToEnglish() {
       'body > main > section > div > div > div.professionalCareer__formation > div.professionalCareer__qualifications > div.professionalCareer__faculty > div > div > div.professionalCareer__date > div:nth-child(2) > p > span:nth-child(2)'
     ).textContent = '3rd period';
 
-    try {
-      await setValuesInLocalStorage(
-        'translationsQualificationsInEnglish',
-        ...(await translateDynamicTexts('PT', 'EN'))
-      );
-    } catch (error) {
-      console.error(
-        'Não foi possível realizar a tradução dos textos para inglês. - It was not possible to translate the texts to English.'
-      );
-    }
+    // try {
+    //   await setValuesInLocalStorage(
+    //     'translationsQualificationsInEnglish',
+    //     ...(await translateDynamicTexts('PT', 'EN'))
+    //   );
+    // } catch (error) {
+    //   console.error(
+    //     'Não foi possível realizar a tradução dos textos para inglês. - It was not possible to translate the texts to English.'
+    //   );
+
+    //   console.error(error);
+    // }
   }
 }
